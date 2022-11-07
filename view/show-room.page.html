@@ -1,0 +1,48 @@
+{{template "base" .}}
+{{define "title"}}
+    <title>Generals Room Page</title>
+{{end}}
+{{define "css"}}
+<style>
+    .container2{
+        background:linear-gradient(black, white);
+        background-blend-mode: multiply;
+        height: 90vh;
+        background-repeat: no-repeat;
+        margin-bottom: 1rem;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        padding: 1rem;
+    }
+</style>
+{{end}}
+{{define "content"}}
+<div class="container2">
+    <h1 style="margin-top:2rem;">List Room Available</h1>
+    {{$rooms := index .Data "rooms"}}
+    <div class="row text-center">
+        <table class="table"style="color: white; margin-top: 2rem;" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Room Name</th>
+                    <th>Pilih</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $rooms}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{Upper .RoomName}}</td>
+                    <td><a href="/choose-room/{{.ID}}" class="btn btn-outline-info">pilih</a></td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+{{end}}

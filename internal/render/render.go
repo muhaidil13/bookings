@@ -7,25 +7,32 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"strings"
 	"text/template"
 
-	"github.com/MRP/config"
-	"github.com/MRP/model"
+	"github.com/Bookings/internal/config"
+	"github.com/Bookings/internal/model"
 	"github.com/justinas/nosurf"
 )
 
 var path = "../view/"
-var funcs = template.FuncMap{}
+var funcs = template.FuncMap{
+	"Upper": ToUpper,
+}
 var App *config.AppConfig
 
 func Init(app *config.AppConfig) {
 	App = app
 }
 
+func ToUpper(str string) string {
+	return strings.ToUpper(str)
+}
+
 func setDefaultData(data *model.TemplateModel, r *http.Request) *model.TemplateModel {
 	data.Error = App.Session.PopString(r.Context(), "error")
 	data.Info = App.Session.PopString(r.Context(), "info")
-	data.Warning = App.Session.PopString(r.Context(), "waring")
+	data.Warning = App.Session.PopString(r.Context(), "warning")
 	data.CsrfToken = nosurf.Token(r)
 
 	return data
@@ -45,9 +52,10 @@ func SetTemplate(w http.ResponseWriter, r *http.Request, file string, data *mode
 		return errors.New("Cant get Template")
 	}
 	buf := new(bytes.Buffer)
-	datamodel := setDefaultData(data, r)
 
-	_ = tc.Execute(buf, datamodel)
+	data = setDefaultData(data, r)
+
+	_ = tc.Execute(buf, data)
 	_, err := buf.WriteTo(w)
 	if err != nil {
 		log.Println(err)

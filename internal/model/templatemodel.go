@@ -3,7 +3,7 @@ package model
 type TemplateModel struct {
 	MapString map[string]string
 	MapInt    map[int]int
-	Data      interface{}
+	Data      map[string]interface{}
 	Info      string
 	Error     string
 	Warning   string

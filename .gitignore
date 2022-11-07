@@ -4,3 +4,4 @@ schema.sql
 run.sh
 run.bat
 .DS_Store
+.env

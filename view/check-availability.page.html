@@ -4,34 +4,46 @@
 {{end}}
 {{define "css"}}
 <style>
-    .container{
-        
+    .container1{
+     background: url("/static/img/search-bg.png"), linear-gradient(black, teal);   
+     background-blend-mode: multiply;
+     background-size: cover;
+     height: 88vh;
+    }
+    .search-id{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4rem;
+    }
+    .search-id h1,label,#start-datehelp,#end-datehelp{
+      color: white;
     }
 </style>
 {{end}}
 {{define "content"}}
-<div class="container">
-    <div class="row">
+<div class="container1">
+    <div class="row search-id">
         <div class="col-lg-7">
         <h1 class="mt-5">Search For Avaliable</h1>
-        <form action="/" method="post" class="needs-validation" novalidate>
-          <div class="row" id="reservation-date">
+        <form action="/post-availability" method="post" class="needs-validation" novalidate>
+          <div class="row " id="reservation-date">
             <div class="col">
               <div class="mb-3">
                 <label for="start-date" class="form-label">Starting Date</label>
-                <input type="text" class="form-control" required autocomplete="off" id="start-date1" name="start-dates" aria-describedby="start-datehelp" placeholder="Start range date">
+                <input type="text" class="form-control" required autocomplete="off" id="start-date" name="start-date" aria-describedby="start-datehelp" placeholder="Start range date">
                 <div id="start-datehelp" class="form-text">Enter Your Starting DD-MM-YYYY</div>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
-                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" id="">
+                <input type="hidden" name="csrf_token" value="{{.CsrfToken}}" id="">
                 <label for="end-date" class="form-label">End Date</label>
-                <input type="text"  class="form-control" id="end-date1" autocomplete="off" name="end-dates" aria-describedby="end-datehelp" placeholder="Range End date" >
+                <input type="text"  class="form-control" id="end-date" autocomplete="off" name="end-date" aria-describedby="end-datehelp" placeholder="Range End date" >
                 <div id="end-datehelp" class="form-text">Enter Your End Date DD-MM-YYYY</div>
               </div>
             </div>
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary mt-4">Submit</button>
           </div>
         </form>
       </div>
@@ -39,13 +51,12 @@
 {{end}}
 {{define "js"}}
 <script>
-            const elemStart = document.querySelector('input[name="start-dates"]');
+          const elemStart = document.querySelector('input[name="start-date"]');
           const datepicker = new Datepicker(elemStart, {
             minDate : new Date()
           }); 
-          const elemEnd = document.querySelector('input[name="end-dates"]');
+          const elemEnd = document.querySelector('input[name="end-date"]');
           const datepicke = new Datepicker(elemEnd, {
-            // ...options
             minDate : new Date()
           }); 
 </script>
