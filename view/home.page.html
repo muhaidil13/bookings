@@ -1,0 +1,76 @@
+{{template "base"}}
+{{define "css"}}
+<style>
+  .tebal{
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: .4s;
+    font-family: 'Inter', sans-serif;
+  }
+  .tebal:hover{
+    transform: translateY(-2px);
+    color: white;
+    background-color: rgb(49, 185, 185);
+  }
+</style>
+{{end}}
+{{define "title"}}
+    <title>Home Page</title>
+{{end}}
+{{define "content"}}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/static/img/vip.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/generals.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/img/clasik.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="row" id="hero">
+    <div class="container-fluid">
+        <div class="col mt-5 text-center">
+            <h1>Welcome To Bookings</h1>
+        </div>
+    </div>
+    <div class="row p-4">
+        <div class="col-6 p-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam minima doloremque enim repellat magnam expedita libero voluptates commodi, aliquam iure, corrupti accusamus possimus laborum porro voluptatibus? Cum modi ipsam libero?</p>
+        </div>
+        <div class="col-6 p-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nihil eum consequuntur iste aperiam corporis! Modi harum dignissimos obcaecati nisi cumque! Exercitationem voluptates totam iusto corrupti tempore, doloremque assumenda sit?
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <a href="/check-availability" class="btn btn-info tebal">Cek For Availability</a>
+        </div>
+    </div>
+  </div>
+{{end}}
+{{define "footer"}}
+<div class="row">
+  <p class="text-sm">Powered by &copy;</p>
+  <div class="col">
+    <p></p>
+  </div>
+</div>
+{{end}}

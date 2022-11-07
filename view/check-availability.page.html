@@ -1,0 +1,52 @@
+{{template "base" .}}
+{{define "title"}}
+    <title>Search For Avaliable</title>
+{{end}}
+{{define "css"}}
+<style>
+    .container{
+        
+    }
+</style>
+{{end}}
+{{define "content"}}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+        <h1 class="mt-5">Search For Avaliable</h1>
+        <form action="/" method="post" class="needs-validation" novalidate>
+          <div class="row" id="reservation-date">
+            <div class="col">
+              <div class="mb-3">
+                <label for="start-date" class="form-label">Starting Date</label>
+                <input type="text" class="form-control" required autocomplete="off" id="start-date1" name="start-dates" aria-describedby="start-datehelp" placeholder="Start range date">
+                <div id="start-datehelp" class="form-text">Enter Your Starting DD-MM-YYYY</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" id="">
+                <label for="end-date" class="form-label">End Date</label>
+                <input type="text"  class="form-control" id="end-date1" autocomplete="off" name="end-dates" aria-describedby="end-datehelp" placeholder="Range End date" >
+                <div id="end-datehelp" class="form-text">Enter Your End Date DD-MM-YYYY</div>
+              </div>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+{{end}}
+{{define "js"}}
+<script>
+            const elemStart = document.querySelector('input[name="start-dates"]');
+          const datepicker = new Datepicker(elemStart, {
+            minDate : new Date()
+          }); 
+          const elemEnd = document.querySelector('input[name="end-dates"]');
+          const datepicke = new Datepicker(elemEnd, {
+            // ...options
+            minDate : new Date()
+          }); 
+</script>
+{{end}}
