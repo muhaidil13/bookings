@@ -20,11 +20,17 @@ func Router() http.Handler {
 	r.Get("/room/vip", controller.Repo.Vip)
 	r.Get("/check-availability", controller.Repo.CheckAvailability)
 	r.Post("/post-availability", controller.Repo.PostAvailability)
+	r.Get("/choose-room/{id}", controller.Repo.ChooseRooms)
+	r.Get("/make-reservation", controller.Repo.MakeReservation)
+	r.Get("/my-reservation", controller.Repo.MyReservation)
+	r.Get("/login", controller.Repo.Login)
+	r.Get("/register", controller.Repo.Register)
 	r.Route("/admin", func(mux chi.Router) {
 		mux.Get("/dashboard", controller.Repo.AdminDashboard)
 	})
 
 	fileserver := http.FileServer(http.Dir("../static"))
 	r.Handle("/static/*", http.StripPrefix("/static", fileserver))
+
 	return r
 }

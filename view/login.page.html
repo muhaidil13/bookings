@@ -1,0 +1,59 @@
+{{template "base" .}}
+{{define "title"}}
+    <title>Login</title>
+{{end}}
+{{define "css"}}
+    <style>
+        label{
+            color: black;
+            font-family: "Inter",sans-serif;
+            font-size:.9rem;
+        }
+        .abu{
+            color: #949b9b;
+        }
+    </style>
+{{end}}
+{{define "content"}}
+<div class="container-fluid">
+    <div class="row col-lg-7 mt-5 mx-auto text-center abu">
+        <h2 >Selamat Datang Silahkan Login!</h2>
+        <p>Member Baru? <a href="/register">Daftar</a> Disini</p>
+    </div>
+    <div class="p-lg-5 rounded-3 col-lg-8 mt-3 mx-auto" style="background-color:#EFF5F5;">
+        <div class="row">
+            <div class="col-7">
+                <form action="" method="post" class="" novalidate >
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-1">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row px-4">
+                            <button class="btn btn-outline-secondary mb-2">Login</button>
+                    </div>
+                </form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row px-4">
+                                <p class="fs-6 fw-lighter text-muted" style="font-size: .7rem;">Atau Login Dengan </p>
+                                <button class="btn btn-primary">Facebook</button>
+                                <button class="btn btn-danger mt-2">Google</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="fs-6 fw-lighter"><a href="">Lupa Kata Sandi?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

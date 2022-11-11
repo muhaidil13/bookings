@@ -31,6 +31,18 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dolores voluptate ex quasi eligendi rerum eos error odit iure. Ut nulla ex fuga laborum molestiae quisquam, obcaecati porro rem ipsam.
         </div>
     </div>
-<a href="" class="btn btn-primary" style="color:white; width: 10rem;">Cek Now</a>
+<button class="btn btn-primary" style="color:white; width: 10rem;">Cek Now</button>
 </div>
+{{end}}
+{{define "js"}}
+<script>
+    const elemStart = document.querySelector('input[name="start-date"]');
+    const datepicker = new Datepicker(elemStart, {
+      minDate : new Date()
+    }); 
+    const elemEnd = document.querySelector('input[name="end-date"]');
+    const datepicke = new Datepicker(elemEnd, {
+      minDate : new Date()
+    }); 
+</script>
 {{end}}

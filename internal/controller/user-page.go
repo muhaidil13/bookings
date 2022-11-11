@@ -3,6 +3,7 @@ package controller
 import (
 	"log"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/Bookings/internal/config"
@@ -11,6 +12,7 @@ import (
 	"github.com/Bookings/internal/render"
 	repostitory "github.com/Bookings/internal/repository"
 	"github.com/Bookings/internal/repository/mysql_repo"
+	"github.com/go-chi/chi"
 )
 
 var Repo *Repostitory
@@ -88,5 +90,33 @@ func (m *Repostitory) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	render.SetTemplate(w, r, "show-room.page.html", &model.TemplateModel{
 		Data: data,
 	})
+}
+func (m *Repostitory) ChooseRooms(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(chi.URLParam(r, "id"))
+	if err != nil {
+		log.Println(err)
+	}
+	res, ok := m.App.Session.Get(r.Context(), "reservation").(model.ReservationRoom)
+	if !ok {
+		log.Println("Gagal Mengambil data")
+	}
+	res.RoomId = id
+	m.App.Session.Put(r.Context(), "res-room", res)
+	http.Redirect(w, r, "/make-reservation", http.StatusSeeOther)
+}
 
+func (m *Repostitory) MakeReservation(w http.ResponseWriter, r *http.Request) {
+	render.SetTemplate(w, r, "make-reservation.page.html", &model.TemplateModel{})
+}
+
+func (m *Repostitory) MyReservation(w http.ResponseWriter, r *http.Request) {
+	render.SetTemplate(w, r, "my-reservation.page.html", &model.TemplateModel{})
+}
+
+func (m *Repostitory) Login(w http.ResponseWriter, r *http.Request) {
+	render.SetTemplate(w, r, "login.page.html", &model.TemplateModel{})
+}
+
+func (m *Repostitory) Register(w http.ResponseWriter, r *http.Request) {
+	render.SetTemplate(w, r, "register.page.html", &model.TemplateModel{})
 }

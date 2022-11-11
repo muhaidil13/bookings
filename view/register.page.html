@@ -1,0 +1,79 @@
+{{template "base" .}}
+{{define "title"}}
+    <title>Register | Daftar</title>
+{{end}}
+{{define "css"}}
+    <style>
+        label{
+            color: black;
+            font-family: "Inter",sans-serif;
+            font-size:.9rem;
+        }
+        .abu{
+            color: #949b9b;
+        }
+    </style>
+{{end}}
+{{define "content"}}
+<div class="container-fluid">
+    <div class="row col-lg-7 col-md-8 col-sm-12 mt-5 mx-auto text-center abu">
+        <h2 >Selamat Datang Silahkan Buat Akun Anda</h2>
+        <p>Sudah Punya Akun?<a href="/login">Login</a> Disini</p>
+    </div>
+    <div class="p-lg-5 p-sm-2 p-md-3 p-xl-3 rounded-3 col-lg-8 mt-3 mx-auto" style="background-color:#EFF5F5;">
+        <div class="row row-cols-md-2 row-cols-sm-1">
+            <div class="col-7">
+                <form action="" method="post" class="" novalidate >
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Nama Depan Anda">
+                        <label for="floatingInput">First Name</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Nama Belakang Anda">
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Email Anda">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row px-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="flexCheckDefault">
+                            <label style="font-size:.8rem ;" class="form-check-label text-muted" for="flexCheckDefault">
+                                Saya ingin menerima penawaran eksklusif dan promosi lewat SMS
+                            </label>
+                          </div>
+                            <button class="btn btn-outline-secondary mb-2 mt-sm-3 ">Daftar</button>
+                            <p style="text-align: justify;font-size: .8rem;" class="fw-lighter text-muted text-justify">Dengan melanjutkan pendaftaran, saya mengakui bahwa saya telah membaca dan menyetujui 
+                                <a href="">Syarat & Ketentuan Penggunaan</a>
+                                dan
+                                <a href="">Kebijakan Privasi bookings</a>
+                                bookings, yang mengatur bagaimana bookings mengumpulkan, menggunakan dan mengungkapkan data pribadi saya, dan hak-hak yang saya miliki berdasarkan hukum.</p>
+                    </div>
+                </form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row px-4">
+                                <p class="fs-6 fw-lighter text-muted">Atau Daftar Dengan</p>
+                                
+                                <button class="btn btn-primary">Facebook</button>
+                                <button class="btn btn-danger mt-2">Google</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="fs-6 fw-lighter "><a href="/login">Sudah Punya Akun?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}
