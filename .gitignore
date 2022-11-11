@@ -1,7 +1,0 @@
-.idea
-database.yml
-schema.sql
-run.sh
-run.bat
-.DS_Store
-.env
