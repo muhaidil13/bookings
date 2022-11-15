@@ -1,6 +1,3 @@
-
-database.yml
-schema.sql
 run.sh
 run.bat
 .env
