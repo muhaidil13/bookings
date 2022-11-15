@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"path/filepath"
 	"strings"
-	"text/template"
 
 	"github.com/Bookings/internal/config"
 	"github.com/Bookings/internal/model"
